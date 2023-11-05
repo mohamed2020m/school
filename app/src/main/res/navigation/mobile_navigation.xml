@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_student">
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_home"-->
+<!--        android:name="me.ensa.inscription.ui.home.HomeFragment"-->
+<!--        android:label="@string/menu_home"-->
+<!--        tools:layout="@layout/fragment_home" />-->
+
+    <fragment
+        android:id="@+id/nav_student"
+        android:name="me.ensa.inscription.ui.student.StudentFragment"
+        android:label="@string/menu_student"
+        tools:layout="@layout/fragment_student" />
+
+    <fragment
+        android:id="@+id/nav_filiere"
+        android:name="me.ensa.inscription.ui.filiere.FiliereFragment"
+        android:label="@string/menu_filiere"
+        tools:layout="@layout/fragment_filiere" />
+
+    <fragment
+        android:id="@+id/nav_role"
+        android:name="me.ensa.inscription.ui.role.RoleFragment"
+        android:label="@string/menu_role"
+        tools:layout="@layout/fragment_role" />
+
+</navigation>
