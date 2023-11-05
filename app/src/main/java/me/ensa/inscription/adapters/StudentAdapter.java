@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import me.ensa.inscription.R;
+import me.ensa.inscription.classes.Role;
 import me.ensa.inscription.classes.Student;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder>{
@@ -73,6 +75,16 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         StudentViewHolder.name.setText(students.get(i).getName());
         StudentViewHolder.email.setText(students.get(i).getEmail());
         StudentViewHolder.phone.setText(students.get(i).getPhone());
+        StudentViewHolder.filiere_code.setText(students.get(i).getFiliere().getCode());
+
+        List<Role> roles = students.get(i).getRoles();
+        String roleNames;
+        if(roles.size() > 1){
+            roleNames = roles.get(0).getName() + "...";
+        }else{
+            roleNames = roles.get(0).getName();
+        }
+        StudentViewHolder.roles_names.setText(roleNames);
     }
 
     @Override
@@ -84,13 +96,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     }
 
     public class StudentViewHolder extends RecyclerView.ViewHolder {
-        TextView name, email, phone;
+        TextView name, email, phone, filiere_code, roles_names;
         CardView parent;
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             email = itemView.findViewById(R.id.email);
             phone = itemView.findViewById(R.id.phone);
+            filiere_code = itemView.findViewById(R.id.filiere_code);
+            roles_names = itemView.findViewById(R.id.roles_names);
 
             parent = itemView.findViewById(R.id.parent);
         }
